@@ -3,19 +3,22 @@
 
 # Request Stick Length for Three Sticks
 def get_stick_lengths():
+    loopFlag = True
     sticks_arr = []
-    try:
-        stick1, stick2, stick3 = map(int, input(
-            'Input the integer length of the three sticks.\n').split())
-    except:
-        print('That is an invalid value, please try again.')
-        exit()
+    while loopFlag:
+        try:
+            stick1, stick2, stick3 = map(int, input(
+                'Input the integer length of the three sticks.\n').split())
+            loopFlag = False
+        except:
+            print('That is an invalid value, please try again.')
     sticks_arr.append(stick1)
     sticks_arr.append(stick2)
     sticks_arr.append(stick3)
     return sticks_arr
 
 
+# Calculates Sum of Input Stick Values
 def get_sums(sticks):
     sums_arr = []
     sums_arr.append(sticks[0]+sticks[1])
@@ -24,6 +27,7 @@ def get_sums(sticks):
     return sums_arr
 
 
+# Calculates if Triangle is Possible
 def is_triangle(sums, sticks):
     possible = True
     for i in range(3):
